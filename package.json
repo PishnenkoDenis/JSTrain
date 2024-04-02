@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./tasks/sumOfThreeElems"
+    "start": "node ./tasks/mergeIntervals.js"
   },
   "keywords": [],
   "author": "",
