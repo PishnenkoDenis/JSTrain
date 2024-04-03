@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./tasks/lengthOfElems"
+    "start": "node ./tasks/includeItem"
   },
   "keywords": [],
   "author": "",
