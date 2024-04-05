@@ -23,5 +23,16 @@ function flatReduce(arr) {
   }, []);
 }
 
+function flatToString(arr) {
+  return arr
+    .toString()
+    .split(",")
+    .map(Number)
+    .sort((a, b) => a - b);
+}
+
 console.log(flat([1, [2, 3], 4, [5, 6, 7], [8, [9, 10]]]));
 console.log(flatReduce([1, [2, 3], 4, [5, 6, 7], [8, [9, 10]]]));
+console.log(flatReduce([1, [2, 3], 4, [5, 6, 7], [], [8, [9, 10]]]));
+
+console.log(flatToString([1, [2, 3], 4, [5, 6, 7], [8, [9, 10]]]));

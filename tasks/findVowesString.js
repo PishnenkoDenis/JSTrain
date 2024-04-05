@@ -24,7 +24,15 @@ function findVowelsMatch(str) {
   return matched ? matched.length : 0;
 }
 
+function getPositionOfVowels(str) {
+  const matched = str.match(/[aeiou]/gi);
+
+  return matched ? matched.map((item) => str.indexOf(item) + 1) : 0;
+}
+
 console.log(findVowels("hello"));
 console.log(findVowelsCount("hello"));
 console.log(findVowelsMatch("hello"));
 console.log(findVowels("why"));
+
+console.log(getPositionOfVowels("hello"));
