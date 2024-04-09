@@ -44,6 +44,15 @@ function add(a, b) {
   return a + b;
 }
 
+function sumPromise(...args) {
+  const result = args.reduce((acc, item) => {
+    return acc + item;
+  });
+  return new Promise((res, rej) => {
+    res(result);
+  });
+}
+
 console.log(sum(20, 2));
 console.log(sum(20)(2));
 
@@ -56,3 +65,5 @@ console.log(careerCall(1)(2)(3)(4)());
 console.log(add(1, 2));
 console.log(add(1)(2));
 console.log(add(1)()()()(2));
+
+sumPromise(1, 2, 3).then(console.log);
