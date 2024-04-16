@@ -6,7 +6,7 @@ type myReadonly<T> = {
   readonly [P in keyof T]: T[P];
 };
 
-//создает из массива объект, в котором каждый элемент массива будет ключом
+//создает из массива объект, в котором каждый элемент массива будет ключом и значением
 type TupleToObject<T extends (string | number | symbol)[]> = {
   [P in T[number]]: P;
 };
@@ -23,7 +23,7 @@ type If<C extends boolean, T, F> = C extends true ? T : F;
 type MyExclude<T, U> = T extends U ? never : T;
 
 //возвращает тип свойства length
-type Length<T extends any[]> = T["length"];
+type Length<T extends unknown[]> = T["length"];
 
 //возвращает первый элемент массива
 type FirstOfArray<T extends unknown[]> = T extends [] ? never : T[0];
@@ -37,6 +37,7 @@ type Unshift<T extends unknown[], U> = [U, ...T];
 //объединение двух массивов
 type Concat<T extends unknown[], U extends unknown[]> = [...T, ...U];
 
+//возвращает свойства объекта в виде строки
 type FlatternObjectKeys<
   T extends Record<string, unknown>,
   Key = keyof T

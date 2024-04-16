@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./tasks/context"
+    "start": "node ./tasks/sameAmountCharsStr"
   },
   "keywords": [],
   "author": "",
