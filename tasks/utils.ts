@@ -6,6 +6,36 @@ type myReadonly<T> = {
   readonly [P in keyof T]: T[P];
 };
 
+type MyPartial<T> = {
+  [P in keyof T]?: T[P];
+};
+
+type MyRequired<T> = {
+  [P in keyof T]-?: T[P];
+};
+
+type MyRecord<K extends keyof any, T> = {
+  [P in K]: T;
+};
+
+type MyExtract<T, U> = T extends U ? T : never;
+
+type MyOmit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
+
+type MyNonNullable<T> = T extends null | undefined ? never : T;
+
+type MyParameters<T extends (...args: any) => any> = T extends (
+  ...args: infer P
+) => any
+  ? P
+  : never;
+
+type MyReturnType<T extends (...args: any) => any> = T extends (
+  ...args: any
+) => infer R
+  ? R
+  : never;
+
 //создает из массива объект, в котором каждый элемент массива будет ключом и значением
 type TupleToObject<T extends (string | number | symbol)[]> = {
   [P in T[number]]: P;
