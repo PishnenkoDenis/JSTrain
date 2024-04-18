@@ -10,12 +10,13 @@ function promiseAll(promises) {
         .then((val) => {
           count++;
           results[i] = val;
+
+          //проверка на то, что все промисы выполнены
+          if (count === promises.length) {
+            res(results);
+          }
         })
         .catch((err) => rej(err));
-    }
-    //проверка на то, что все промисы выполнены
-    if (count === promises.length) {
-      res(results);
     }
   });
 }
@@ -31,5 +32,4 @@ const timer2 = () => {
   });
 };
 
-const results = promiseAll([timer1(), timer2()]);
-console.log(results);
+promiseAll([timer1(), timer2()]).then((res) => console.log(res));
