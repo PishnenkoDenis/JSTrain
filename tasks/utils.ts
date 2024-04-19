@@ -76,3 +76,13 @@ type FlatternObjectKeys<
     ? `${Key}.${FlatternObjectKeys<T[Key]>}`
     : `${Key}`
   : never;
+
+//Интерфейс массива
+interface StringArray {
+  [index: number]: string;
+}
+
+//Интерфейс функции
+interface Func {
+  (name: string): string;
+}
