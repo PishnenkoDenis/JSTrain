@@ -49,3 +49,37 @@ setTimeout(() => console.log(9), 0);
 console.log(10);
 
 //1,2,10, 5, 7, 6, 8, 3, 9
+
+function test() {
+  const p = Promise.resolve();
+
+  setTimeout(() => {
+    console.log("timeout1");
+
+    p.then(() => {
+      console.log("promise");
+    });
+  }, 0);
+
+  setTimeout(() => {
+    console.log("timeout2");
+  }, 0);
+}
+
+function testAnimation() {
+  const p = Promise.resolve();
+
+  requestAnimationFrame(() => {
+    console.log("timeout1");
+
+    p.then(() => {
+      console.log("promise");
+    });
+  });
+
+  requestAnimationFrame(() => {
+    console.log("timeout2");
+  });
+}
+
+console.log("test", testAnimation()); //timeout1, timeout2, promise,
