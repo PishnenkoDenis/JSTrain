@@ -82,7 +82,15 @@ interface StringArray {
   [index: number]: string;
 }
 
+interface Arr<T> {
+  [index: number]: T;
+}
+
 //Интерфейс функции
 interface Func {
   (name: string): string;
+}
+
+interface GenFunc<T> {
+  (arg: T): T;
 }
