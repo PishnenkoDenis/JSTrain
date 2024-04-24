@@ -65,6 +65,7 @@ function test() {
     console.log("timeout2");
   }, 0);
 }
+test(); //timeout1, promise, timeout2
 
 function testAnimation() {
   const p = Promise.resolve();
@@ -80,6 +81,6 @@ function testAnimation() {
   requestAnimationFrame(() => {
     console.log("timeout2");
   });
-}
+} //timeout1, promise, timeout2
 
 console.log("test", testAnimation()); //timeout1, timeout2, promise,

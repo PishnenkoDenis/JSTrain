@@ -12,8 +12,25 @@ function deepNoClone(obj) {
   return Object.assign({}, obj);
 }
 
-function deepClone(obj) {
+function deepStructClone(obj) {
   return structuredClone(obj);
+}
+
+function deepClone(obj) {
+  const primitives = ["number", "symbol", "string", "boolean", "function"];
+  if (primitives.includes(typeof obj)) {
+    return obj;
+  } else if (Array.isArray(obj)) {
+    return obj.map((val) => {
+      return deepClone(val);
+    });
+  } else if (typeof obj === "object" && obj !== null) {
+    let res = {};
+    for (let k in obj) {
+      res[k] = deepClone(obj[k]);
+    }
+    return res;
+  }
 }
 
 const a = {
@@ -33,3 +50,4 @@ const b = deepClone(a);
 b.c.e = 42;
 
 console.log(a);
+console.log(b);
