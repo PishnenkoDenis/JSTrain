@@ -13,5 +13,19 @@ function getUniqueBySet(arr) {
   return [...new Set(arr)];
 }
 
+function mapArray(arr) {
+  const map = {};
+
+  return arr.reduce((acc, item) => {
+    if (!map[item]) {
+      map[item] = true;
+      return [...acc, item];
+    }
+
+    return acc;
+  }, []);
+}
+
 console.log(getUniques([1, "asdf", "test", 15, {}, "asdf", {}])); //[1,asdf,test,15,{}, {}]
 console.log(getUniqueBySet([1, "asdf", "test", 15, {}, "asdf", {}])); //[1,asdf,test,15,{}, {}]
+console.log(mapArray([1, 1, 2, 3, 4, 5, 5, "test", "test"]));

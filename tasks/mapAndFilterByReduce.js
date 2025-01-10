@@ -6,7 +6,7 @@ function map(arr, cb) {
 
 function filter(arr, cb) {
   return arr.reduce((acc, item, index) => {
-    if (!cb(item, index, arr)) {
+    if (cb(item, index, arr)) {
       return [...acc, item];
     }
     return acc;
